@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import FSCalendar
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDelegateAppearance, FSCalendarDataSource {
+    @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet weak var mainCalendar: FSCalendar!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
