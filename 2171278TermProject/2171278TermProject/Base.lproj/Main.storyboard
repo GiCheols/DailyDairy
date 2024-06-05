@@ -24,23 +24,46 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZE-uc-HJn" userLabel="다음 달">
                                                 <rect key="frame" x="309.5" y="0.0" width="64.5" height="31"/>
+                                                <color key="backgroundColor" red="0.6705882352941176" green="0.87058823529411766" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="다음 달"/>
+                                                <connections>
+                                                    <action selector="afterDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qqm-er-m2s"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9r6-kI-5Tn" userLabel="이전 달">
                                                 <rect key="frame" x="8" y="0.0" width="64.5" height="31"/>
+                                                <color key="backgroundColor" red="0.6705882352941176" green="0.87058823529411766" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="이전 달"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="저번 달"/>
+                                                <connections>
+                                                    <action selector="beforeDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yGH-ve-p46"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCa-JB-ZfZ">
+                                                <rect key="frame" x="135" y="0.0" width="104.5" height="30"/>
+                                                <color key="backgroundColor" red="0.6705882352941176" green="0.87058823529411766" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="주간 달력 보기"/>
+                                                <connections>
+                                                    <action selector="clickChangeScope:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w2e-Hz-hEH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="dCa-JB-ZfZ" firstAttribute="centerX" secondItem="O8p-oP-uwi" secondAttribute="centerX" id="1Vd-rY-B90"/>
                                             <constraint firstItem="UZE-uc-HJn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9r6-kI-5Tn" secondAttribute="trailing" constant="8" symbolic="YES" id="2lD-A2-eTM"/>
+                                            <constraint firstAttribute="bottom" secondItem="dCa-JB-ZfZ" secondAttribute="bottom" id="35I-hw-wvg"/>
                                             <constraint firstItem="UZE-uc-HJn" firstAttribute="baseline" secondItem="9r6-kI-5Tn" secondAttribute="baseline" id="5bd-gN-Twb"/>
                                             <constraint firstItem="9r6-kI-5Tn" firstAttribute="leading" secondItem="O8p-oP-uwi" secondAttribute="leadingMargin" id="Cuf-Wi-RRu"/>
                                             <constraint firstAttribute="trailing" secondItem="UZE-uc-HJn" secondAttribute="trailing" id="EAk-dC-g4m"/>
                                             <constraint firstItem="UZE-uc-HJn" firstAttribute="top" secondItem="O8p-oP-uwi" secondAttribute="top" id="l8Y-MM-VSR"/>
                                             <constraint firstAttribute="height" constant="30" id="vr9-wg-tbi"/>
+                                            <constraint firstItem="dCa-JB-ZfZ" firstAttribute="top" secondItem="O8p-oP-uwi" secondAttribute="top" id="z9i-LU-lp6"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lrx-dp-P6m" customClass="FSCalendar">
@@ -54,7 +77,7 @@
                                         <rect key="frame" x="0.0" y="432" width="374" height="166"/>
                                         <color key="backgroundColor" red="0.6705882352941176" green="0.87058823529411766" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Be8-Ei-Lry">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Be8-Ei-Lry">
                                         <rect key="frame" x="0.0" y="599" width="374" height="170"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nef-Ae-8hf">
@@ -95,8 +118,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="Ohm-ct-467"/>
                     <connections>
+                        <outlet property="beforeDate" destination="9r6-kI-5Tn" id="oaR-0X-3ss"/>
                         <outlet property="calendarHeight" destination="ehr-6S-fRE" id="HPl-9N-9K0"/>
+                        <outlet property="changeScopeButton" destination="dCa-JB-ZfZ" id="gay-hN-Ew5"/>
                         <outlet property="mainCalendar" destination="Lrx-dp-P6m" id="oIo-PT-m9N"/>
+                        <outlet property="nextDate" destination="UZE-uc-HJn" id="hHJ-Iv-abF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
