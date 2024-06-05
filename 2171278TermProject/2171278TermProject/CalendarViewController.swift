@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 
-class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDelegateAppearance, FSCalendarDataSource {
+class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDelegateAppearance, FSCalendarDataSource {
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var mainCalendar: FSCalendar!
     override func viewDidLoad() {
