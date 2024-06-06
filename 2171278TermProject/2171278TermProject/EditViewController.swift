@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class EditViewController: UIViewController {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var diaryTextView: UITextView!
+    let diaryManager = DiaryManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +21,23 @@ class EditViewController: UIViewController {
         let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(capturePicture))
         imageView.addGestureRecognizer(imageTapGesture)
         
+        testSave()
+        
         self.setUpTextField(textView: diaryTextView)
     }
     
+    func testSave() {
+        let testDate = Date.now
+        let testTitle = "Sample Data"
+        let testContent = "Sample Content"
+        let testImage = UIImage(named: "exampleImageName")
+        
+        diaryManager.createDiary(date: testDate, title: testTitle, content: testContent, image: testImage)
+    }
+    
+    @IBAction func saveDiary(_ sender: UIButton) {
+        
+    }
     func setUpTextField(textView: UITextView) {
         textView.delegate = self
         

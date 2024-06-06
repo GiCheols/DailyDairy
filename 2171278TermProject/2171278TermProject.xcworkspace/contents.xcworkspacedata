@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/namgicheol/Desktop/iOSProject/2171278TermProject/2171278TermProject/Diary+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/namgicheol/Desktop/iOSProject/2171278TermProject/2171278TermProject/DiaryManager.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/namgicheol/Desktop/iOSProject/2171278TermProject/2171278TermProject/Diary+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:2171278TermProject.xcodeproj">
    </FileRef>
    <FileRef
