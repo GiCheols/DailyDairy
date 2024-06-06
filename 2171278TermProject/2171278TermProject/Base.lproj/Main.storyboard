@@ -202,7 +202,9 @@
                     <tabBarItem key="tabBarItem" title="새 일기" image="square.and.pencil" catalog="system" id="9pR-wQ-jZ1"/>
                     <connections>
                         <outlet property="dateLabel" destination="vZQ-DM-kdN" id="xJl-dQ-cM8"/>
+                        <outlet property="datePicker" destination="Tpe-Fd-FFV" id="6KX-Gb-5LT"/>
                         <outlet property="diaryTextView" destination="OcC-Km-soJ" id="UFy-FM-L9m"/>
+                        <outlet property="diaryTitleTextField" destination="FXh-Pa-yRz" id="V8V-4i-2Tq"/>
                         <outlet property="imageView" destination="mtX-vr-yQ3" id="Tn9-QX-LK5"/>
                     </connections>
                 </viewController>

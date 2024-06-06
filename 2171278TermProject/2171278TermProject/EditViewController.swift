@@ -12,6 +12,8 @@ class EditViewController: UIViewController {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var diaryTitleTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var diaryTextView: UITextView!
     let diaryManager = DiaryManager()
     
@@ -21,23 +23,43 @@ class EditViewController: UIViewController {
         let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(capturePicture))
         imageView.addGestureRecognizer(imageTapGesture)
         
-        testSave()
+//        testSave()
         
         self.setUpTextField(textView: diaryTextView)
     }
     
-    func testSave() {
-        let testDate = Date.now
-        let testTitle = "Sample Data"
-        let testContent = "Sample Content"
-        let testImage = UIImage(named: "exampleImageName")
-        
-        diaryManager.createDiary(date: testDate, title: testTitle, content: testContent, image: testImage)
-    }
+//    func testSave() {
+//        let testDate = Date.now
+//        let testTitle = "Sample Data"
+//        let testContent = "Sample Content"
+//        let testImage = UIImage(named: "exampleImageName")
+//
+//        diaryManager.createDiary(date: testDate, title: testTitle, content: testContent, image: testImage)
+//    }
     
     @IBAction func saveDiary(_ sender: UIButton) {
+        guard let title = diaryTitleTextField.text, !title.isEmpty,
+              let content = diaryTextView.text, !content.isEmpty else {
+            // 알림 표시: 제목 또는 내용이 비어있음
+            showAlert(message: "제목과 내용을 모두 입력해주세요.")
+            return
+        }
         
+        let date = datePicker.date
+        let image = imageView.image
+        
+        diaryManager.createDiary(date: date, title: title, content: content, image: image)
+        
+        // 알림 표시: 저장 성공
+        showAlert(message: "일기가 저장되었습니다.")
     }
+    
+    func showAlert(message: String) {
+            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "확인", style: .default))
+            present(alertController, animated: true)
+        }
+    
     func setUpTextField(textView: UITextView) {
         textView.delegate = self
         
