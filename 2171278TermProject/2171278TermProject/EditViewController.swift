@@ -50,8 +50,10 @@ class EditViewController: UIViewController {
         
         diaryManager.createDiary(date: date, title: title, content: content, image: image)
         
-        // 알림 표시: 저장 성공
+        // 저장 성공
         showAlert(message: "일기가 저장되었습니다.")
+        resetInputFields()
+        tabBarController?.selectedIndex = 0
     }
     
     func showAlert(message: String) {
@@ -90,6 +92,14 @@ class EditViewController: UIViewController {
         formatter.dateFormat = "yyyy년 MM월 dd일"
         
         dateLabel.text = formatter.string(from: datePickerView.date)
+    }
+    
+    func resetInputFields() {
+        diaryTitleTextField.text = ""
+        diaryTextView.text = "내용을 입력하세요."
+        diaryTextView.textColor = .lightGray
+        imageView.image = nil
+        datePicker.date = Date()
     }
 }
 
