@@ -8,6 +8,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
     @IBOutlet weak var changeScopeButton: UIButton!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var mainCalendar: FSCalendar!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    let diaryManager = DiaryManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +70,22 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
     @IBAction func afterDate(_ sender: UIButton) {
         self.actionMoveDate(calendar: self.mainCalendar, moveUp: true)
     }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            if let diary = diaryManager.getDiary(for: date) {
+                titleLabel.text = diary.title
+                contentView.text = diary.content
+                if let imageData = diary.image {
+                    imageView.image = UIImage(data: imageData)
+                } else {
+                    imageView.image = nil
+                }
+            } else {
+                titleLabel.text = "제목"
+                contentView.text = "일기 내용"
+                imageView.image = nil
+            }
+        }
     
     func actionMoveDate(calendar: FSCalendar, moveUp: Bool) {
         let moveDirection = moveUp ? 1 : -1

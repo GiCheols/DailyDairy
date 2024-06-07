@@ -63,4 +63,22 @@ class DiaryManager {
         context.delete(diary)
         saveContext()
     }
+    
+    func getDiary(for date: Date) -> Diary? {
+        let request: NSFetchRequest<Diary> = Diary.fetchRequest()
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)
+        
+        request.predicate = NSPredicate(format: "date >= %@ AND date < %@", startOfDay as NSDate, endOfDay! as NSDate)
+        
+        do {
+            let diaries = try context.fetch(request)
+            return diaries.first
+        } catch {
+            print("Failed to get Diary for date: \(error)")
+            return nil
+        }
+    }
+
 }
