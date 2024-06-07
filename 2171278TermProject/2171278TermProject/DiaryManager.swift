@@ -16,8 +16,11 @@ class DiaryManager {
         self.context = context
     }
     
-    // CRUD
-    func createDiary(date: Date, title: String, content: String, image: UIImage?) {
+    func createDiary(date: Date, title: String, content: String, image: UIImage?) -> Bool {
+        if getDiary(for: date) != nil {
+            return false
+        }
+
         let diary = Diary(context: context)
         diary.date = date
         diary.title = title
@@ -25,9 +28,10 @@ class DiaryManager {
         if let imageData = image?.jpegData(compressionQuality: 1.0) {
             diary.image = imageData
         }
-        
+
         saveContext()
         print("Diary created: \(diary)")
+        return true
     }
     
     private func saveContext() {

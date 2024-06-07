@@ -29,7 +29,6 @@ class CreateDiaryViewController: UIViewController {
     @IBAction func saveDiary(_ sender: UIButton) {
         guard let title = diaryTitleTextField.text, !title.isEmpty,
               let content = diaryTextView.text, !content.isEmpty else {
-            // 알림 표시: 제목 또는 내용이 비어있음
             showAlert(message: "제목과 내용을 모두 입력해주세요.")
             return
         }
@@ -37,7 +36,10 @@ class CreateDiaryViewController: UIViewController {
         let date = datePicker.date
         let image = imageView.image
         
-        diaryManager.createDiary(date: date, title: title, content: content, image: image)
+        if !diaryManager.createDiary(date: date, title: title, content: content, image: image) {
+               showAlert(message: "해당 날짜에 이미 일기가 있습니다. 다른 날짜를 선택해주세요.")
+               return
+        }
         
         // 저장 성공
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DiarySaved"), object: nil)

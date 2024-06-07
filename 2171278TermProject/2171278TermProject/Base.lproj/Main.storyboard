@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calendar View Controller-->
+        <!--iOS 프로젝트-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CalendarViewController" customModule="_171278TermProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,7 +140,7 @@
                             <constraint firstItem="lnF-QK-r8C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tMB-du-aev"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Gwv-FK-0Qb"/>
+                    <navigationItem key="navigationItem" title="iOS 프로젝트" largeTitleDisplayMode="never" id="Gwv-FK-0Qb"/>
                     <connections>
                         <outlet property="beforeDate" destination="9r6-kI-5Tn" id="oaR-0X-3ss"/>
                         <outlet property="calendarHeight" destination="ehr-6S-fRE" id="HPl-9N-9K0"/>

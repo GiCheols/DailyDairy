@@ -22,6 +22,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleDiarySaved(_:)), name: NSNotification.Name(rawValue: "DiarySaved"), object: nil)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadCalendarData()
+        self.title = "iOS 프로젝트"
+    }
 
     func setCalendar(calendar : FSCalendar) {
         mainCalendar.delegate = self
@@ -75,24 +81,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
         self.actionMoveDate(calendar: self.mainCalendar, moveUp: true)
     }
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-            if let diary = diaryManager.getDiary(for: date) {
-                titleLabel.text = diary.title
-                contentView.text = diary.content
-                if let imageData = diary.image {
-                    imageView.image = UIImage(data: imageData)
-                } else {
-                    imageView.image = nil
-                }
-                editButton.isHidden = false
-            } else {
-                titleLabel.text = "제목"
-                contentView.text = "일기 내용"
-                imageView.image = nil
-                editButton.isHidden = true
-            }
-        }
-    
     func actionMoveDate(calendar: FSCalendar, moveUp: Bool) {
         let moveDirection = moveUp ? 1 : -1
         
@@ -116,7 +104,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
     }
     
     @objc func handleDiarySaved(_ notification: Notification) {
-        self.mainCalendar.reloadData()
+        reloadCalendarData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,6 +117,35 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
                 }
             }
         }
+    }
+    
+    func reloadCalendarData() {
+        mainCalendar.reloadData()
+        if let selectedDate = mainCalendar.selectedDate {
+            updateDiaryDetails(for: selectedDate)
+        }
+    }
+    
+    func updateDiaryDetails(for date: Date) {
+        if let diary = diaryManager.getDiary(for: date) {
+            titleLabel.text = diary.title
+            contentView.text = diary.content
+            if let imageData = diary.image {
+                imageView.image = UIImage(data: imageData)
+            } else {
+                imageView.image = nil
+            }
+            editButton.isHidden = false
+        } else {
+            titleLabel.text = "제목"
+            contentView.text = "일기 내용"
+            imageView.image = nil
+            editButton.isHidden = true
+        }
+    }
+    
+    internal func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        updateDiaryDetails(for: date)
     }
 }
 

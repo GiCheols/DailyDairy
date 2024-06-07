@@ -23,6 +23,8 @@ class EditViewController: UIViewController {
                 editImageView.image = UIImage(data: imageData)
             }
         }
+        
+        self.navigationController?.navigationBar.topItem?.title = "뒤로가기"
     }
     
     
