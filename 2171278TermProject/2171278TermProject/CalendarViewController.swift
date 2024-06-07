@@ -11,6 +11,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
     
     let diaryManager = DiaryManager()
     
@@ -28,6 +29,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
         
         mainCalendar.scrollEnabled = true
         mainCalendar.scrollDirection = .horizontal
+        mainCalendar.scope = .week
         
         mainCalendar.backgroundColor = .white
         
@@ -82,10 +84,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
                 } else {
                     imageView.image = nil
                 }
+                editButton.isHidden = false
             } else {
                 titleLabel.text = "제목"
                 contentView.text = "일기 내용"
                 imageView.image = nil
+                editButton.isHidden = true
             }
         }
     
@@ -112,8 +116,19 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
     }
     
     @objc func handleDiarySaved(_ notification: Notification) {
-        print("Diary Saved Notification Received")
-        mainCalendar.reloadData()
+        self.mainCalendar.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditIdentifier" {
+            if let destinationVC = segue.destination as? EditViewController {
+                if let selectedDate = mainCalendar.selectedDate {
+                    if let diary = diaryManager.getDiary(for: selectedDate) {
+                        destinationVC.diary = diary
+                    }
+                }
+            }
+        }
     }
 }
 

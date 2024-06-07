@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		340A536E2C0F82BB00C1477F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A536D2C0F82BB00C1477F /* EditViewController.swift */; };
+		340A536E2C0F82BB00C1477F /* CreateDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A536D2C0F82BB00C1477F /* CreateDiaryViewController.swift */; };
 		3439E6CA2C0E1F4D00DFD4F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3439E6C92C0E1F4D00DFD4F9 /* AppDelegate.swift */; };
 		3439E6CC2C0E1F4D00DFD4F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3439E6CB2C0E1F4D00DFD4F9 /* SceneDelegate.swift */; };
 		3439E6CE2C0E1F4D00DFD4F9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3439E6CD2C0E1F4D00DFD4F9 /* CalendarViewController.swift */; };
@@ -20,11 +20,12 @@
 		344E292C2C121F4900314AED /* DiaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E292B2C121F4800314AED /* DiaryManager.swift */; };
 		344E292F2C121F6500314AED /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E292E2C121F6500314AED /* Diary+CoreDataProperties.swift */; };
 		344E29302C121F6500314AED /* Diary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E292D2C121F6500314AED /* Diary+CoreDataClass.swift */; };
+		34E8EB782C1364E600AF3B2A /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E8EB772C1364E600AF3B2A /* EditViewController.swift */; };
 		878500BF4C477945D4B284D8 /* Pods_2171278TermProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3031B014C2F52537AB41520 /* Pods_2171278TermProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		340A536D2C0F82BB00C1477F /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		340A536D2C0F82BB00C1477F /* CreateDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryViewController.swift; sourceTree = "<group>"; };
 		3439E6C62C0E1F4D00DFD4F9 /* 2171278TermProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2171278TermProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3439E6C92C0E1F4D00DFD4F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3439E6CB2C0E1F4D00DFD4F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +40,7 @@
 		344E292B2C121F4800314AED /* DiaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryManager.swift; path = /Users/namgicheol/Desktop/iOSProject/2171278TermProject/2171278TermProject/DiaryManager.swift; sourceTree = "<absolute>"; };
 		344E292D2C121F6500314AED /* Diary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Diary+CoreDataClass.swift"; path = "/Users/namgicheol/Desktop/iOSProject/2171278TermProject/2171278TermProject/Diary+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		344E292E2C121F6500314AED /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Diary+CoreDataProperties.swift"; path = "/Users/namgicheol/Desktop/iOSProject/2171278TermProject/2171278TermProject/Diary+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		34E8EB772C1364E600AF3B2A /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		74F865E36B7E9C632DA6A196 /* Pods-2171278TermProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2171278TermProject.debug.xcconfig"; path = "Target Support Files/Pods-2171278TermProject/Pods-2171278TermProject.debug.xcconfig"; sourceTree = "<group>"; };
 		7E765CF8F609569DBD0E3603 /* Pods-2171278TermProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2171278TermProject.release.xcconfig"; path = "Target Support Files/Pods-2171278TermProject/Pods-2171278TermProject.release.xcconfig"; sourceTree = "<group>"; };
 		D3031B014C2F52537AB41520 /* Pods_2171278TermProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2171278TermProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,12 +87,13 @@
 				3439E6CB2C0E1F4D00DFD4F9 /* SceneDelegate.swift */,
 				3439E6CD2C0E1F4D00DFD4F9 /* CalendarViewController.swift */,
 				3439E6CF2C0E1F4D00DFD4F9 /* Main.storyboard */,
+				34E8EB772C1364E600AF3B2A /* EditViewController.swift */,
 				344E29242C1213F600314AED /* Model.xcdatamodeld */,
 				344E29292C12169500314AED /* CoreDataStack.swift */,
 				3439E6D22C0E1F4F00DFD4F9 /* Assets.xcassets */,
 				3439E6D42C0E1F4F00DFD4F9 /* LaunchScreen.storyboard */,
 				3439E6D72C0E1F4F00DFD4F9 /* Info.plist */,
-				340A536D2C0F82BB00C1477F /* EditViewController.swift */,
+				340A536D2C0F82BB00C1477F /* CreateDiaryViewController.swift */,
 			);
 			path = 2171278TermProject;
 			sourceTree = "<group>";
@@ -228,8 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34E8EB782C1364E600AF3B2A /* EditViewController.swift in Sources */,
 				344E29302C121F6500314AED /* Diary+CoreDataClass.swift in Sources */,
-				340A536E2C0F82BB00C1477F /* EditViewController.swift in Sources */,
+				340A536E2C0F82BB00C1477F /* CreateDiaryViewController.swift in Sources */,
 				3439E6CE2C0E1F4D00DFD4F9 /* CalendarViewController.swift in Sources */,
 				344E292C2C121F4900314AED /* DiaryManager.swift in Sources */,
 				344E29262C1213F600314AED /* Model.xcdatamodeld in Sources */,
