@@ -20,6 +20,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
         
         self.setCalendar(calendar: mainCalendar)
         
+//        diaryManager.deleteAllDiaries()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleDiarySaved(_:)), name: NSNotification.Name(rawValue: "DiarySaved"), object: nil)
     }
     

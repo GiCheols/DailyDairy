@@ -63,10 +63,36 @@ class DiaryManager {
         saveContext()
     }
     
-    func deleteDiary(diary: Diary) {
-        context.delete(diary)
-        saveContext()
+    func deleteDiary(date: Date) {
+        let fetchRequest: NSFetchRequest<Diary> = Diary.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "date == %@", date as CVarArg)
+
+        do {
+            let diaries = try context.fetch(fetchRequest)
+            
+            for diary in diaries {
+                print("\(diary)")
+                context.delete(diary)
+            }
+            try context.save()
+            
+        } catch {
+                print("일기 삭제에 실패했습니다. \(error.localizedDescription)")
+        }
     }
+    
+    func deleteAllDiaries() {
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Diary")
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            
+            do {
+                try context.execute(deleteRequest)
+                try context.save()
+                print("모든 일기 삭제 완료")
+            } catch {
+                print("모든 일기 삭제 실패: \(error.localizedDescription)")
+            }
+        }
     
     func getDiary(for date: Date) -> Diary? {
         let request: NSFetchRequest<Diary> = Diary.fetchRequest()
@@ -85,4 +111,24 @@ class DiaryManager {
         }
     }
 
+    func deleteDiaries(forDate date: Date) {
+            let fetchRequest: NSFetchRequest<Diary> = Diary.fetchRequest()
+            let calendar = Calendar.current
+            let startOfDay = calendar.startOfDay(for: date)
+            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)
+            
+            fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startOfDay as NSDate, endOfDay! as NSDate)
+            
+            do {
+                let diaries = try context.fetch(fetchRequest)
+                
+                for diary in diaries {
+                    context.delete(diary)
+                }
+                try context.save()
+                print("해당 날짜에 존재하는 일기 삭제 완료")
+            } catch {
+                print("해당 날짜에 존재하는 일기 삭제 실패: \(error.localizedDescription)")
+            }
+        }
 }
