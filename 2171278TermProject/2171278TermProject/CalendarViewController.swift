@@ -18,6 +18,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
         super.viewDidLoad()
         
         self.setCalendar(calendar: mainCalendar)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDiarySaved(_:)), name: NSNotification.Name(rawValue: "DiarySaved"), object: nil)
     }
 
     func setCalendar(calendar : FSCalendar) {
@@ -99,6 +101,19 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
                 calendar.setCurrentPage(newDate, animated: true)
             }
         }
+    }
+    
+    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+        if diaryManager.getDiary(for: date) != nil {
+            return "📔"
+        } else {
+            return nil
+        }
+    }
+    
+    @objc func handleDiarySaved(_ notification: Notification) {
+        print("Diary Saved Notification Received")
+        mainCalendar.reloadData()
     }
 }
 

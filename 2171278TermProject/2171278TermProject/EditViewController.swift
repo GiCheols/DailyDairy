@@ -51,6 +51,7 @@ class EditViewController: UIViewController {
         diaryManager.createDiary(date: date, title: title, content: content, image: image)
         
         // 저장 성공
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DiarySaved"), object: nil)
         showAlert(message: "일기가 저장되었습니다.")
         resetInputFields()
         tabBarController?.selectedIndex = 0
