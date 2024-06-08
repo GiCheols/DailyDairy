@@ -27,7 +27,7 @@
                                                 <color key="backgroundColor" red="0.6705882352941176" green="0.87058823529411766" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="다음 달"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="다음 주"/>
                                                 <connections>
                                                     <action selector="afterDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qqm-er-m2s"/>
                                                 </connections>
@@ -37,7 +37,7 @@
                                                 <color key="backgroundColor" red="0.6705882352941176" green="0.87058823529411766" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="저번 달"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="저번 주"/>
                                                 <connections>
                                                     <action selector="beforeDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yGH-ve-p46"/>
                                                 </connections>
@@ -47,7 +47,7 @@
                                                 <color key="backgroundColor" red="0.6705882352941176" green="0.87058823529411766" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="주간 달력 보기"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="월간 달력 보기"/>
                                                 <connections>
                                                     <action selector="clickChangeScope:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w2e-Hz-hEH"/>
                                                 </connections>
@@ -99,7 +99,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDJ-Az-AOz">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDJ-Az-AOz">
                                                 <rect key="frame" x="293.5" y="2" width="72.5" height="35"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" title="Button"/>
@@ -245,6 +245,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="새 일기" image="square.and.pencil" catalog="system" id="9pR-wQ-jZ1"/>
                     <connections>
+                        <outlet property="createDiaryBottomConstraint" destination="jVO-rN-7Pj" id="WWh-Be-bIW"/>
+                        <outlet property="createDiaryTopConstraint" destination="8GS-wR-B6d" id="Km3-2j-bKc"/>
                         <outlet property="dateLabel" destination="vZQ-DM-kdN" id="xJl-dQ-cM8"/>
                         <outlet property="datePicker" destination="Tpe-Fd-FFV" id="6KX-Gb-5LT"/>
                         <outlet property="diaryTextView" destination="OcC-Km-soJ" id="UFy-FM-L9m"/>
@@ -313,12 +315,18 @@
                             <constraint firstItem="Epj-jP-2mV" firstAttribute="leading" secondItem="Le2-5H-ARV" secondAttribute="leading" constant="10" id="TfB-Be-zUk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="수정하기" id="Y0d-Tc-bjz"/>
+                    <navigationItem key="navigationItem" title="수정하기" id="Y0d-Tc-bjz">
+                        <barButtonItem key="rightBarButtonItem" title="삭제" id="LeI-W7-1KT">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="editContentTextView" destination="92z-YQ-oMY" id="wSN-Eo-tKF"/>
+                        <outlet property="editBottomConstraint" destination="7Py-VO-sRO" id="1gB-zy-KBX"/>
+                        <outlet property="editContentTextView" destination="92z-YQ-oMY" id="spp-0U-Eco"/>
                         <outlet property="editDiaryButton" destination="g1H-tW-uHl" id="MtX-4G-zJe"/>
                         <outlet property="editImageView" destination="1wf-Co-Fde" id="FM0-ic-PnK"/>
                         <outlet property="editTitleLabel" destination="u7F-5B-c1C" id="1dM-fR-jY1"/>
+                        <outlet property="editTopConstraint" destination="OgT-26-mJj" id="hRs-Dd-EdP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjf-6j-Wiq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -372,6 +380,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

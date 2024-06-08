@@ -17,6 +17,10 @@ class CreateDiaryViewController: UIViewController {
     @IBOutlet weak var diaryTextView: UITextView!
     let diaryManager = DiaryManager()
     
+    @IBOutlet weak var createDiaryBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var createDiaryTopConstraint: NSLayoutConstraint!
+    var isShowKeyboard = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +28,13 @@ class CreateDiaryViewController: UIViewController {
         imageView.addGestureRecognizer(imageTapGesture)
         
         self.setUpTextField(textView: diaryTextView)
+        
+        let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(viewTapGesture)
+    }
+    
+    @objc func dismissKeyboard(Sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @IBAction func saveDiary(_ sender: UIButton) {
@@ -49,9 +60,9 @@ class CreateDiaryViewController: UIViewController {
     }
     
     func showAlert(message: String) {
-            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "확인", style: .default))
-            present(alertController, animated: true)
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default))
+        present(alertController, animated: true)
     }
     
     func setUpTextField(textView: UITextView) {
@@ -93,6 +104,27 @@ class CreateDiaryViewController: UIViewController {
         imageView.image = nil
         datePicker.date = Date()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main){ notification in
+            if self.isShowKeyboard == false {
+                self.isShowKeyboard = true
+                self.createDiaryTopConstraint.constant -= 150
+                self.createDiaryBottomConstraint.constant -= 150
+            }
+        }
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: OperationQueue.main){ notification in
+            self.createDiaryTopConstraint.constant += 150
+            self.createDiaryBottomConstraint.constant += 150
+            self.isShowKeyboard = false
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+    NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification,object:nil)
+    NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillHideNotification,object:nil)
+    }
+
 }
 
 extension CreateDiaryViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
