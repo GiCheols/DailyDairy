@@ -28,7 +28,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadCalendarData()
-        self.title = "iOS 프로젝트"
+        self.title = "Daily Diary"
     }
 
     func setCalendar(calendar : FSCalendar) {

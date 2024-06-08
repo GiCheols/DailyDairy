@@ -30,6 +30,7 @@ class EditViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = "뒤로가기"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "삭제", style: .plain,target: self, action: #selector(deleteDiary))
         navigationItem.rightBarButtonItem?.tintColor = .red
+        navigationController?.navigationBar.backgroundColor = .white
         
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(viewTapGesture)

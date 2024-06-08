@@ -1,10 +1,3 @@
-//
-//  EditViewController.swift
-//  2171278TermProject
-//
-//  Created by 남기철 on 2024/06/05.
-//
-
 import UIKit
 import CoreData
 

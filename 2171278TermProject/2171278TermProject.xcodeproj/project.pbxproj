@@ -14,6 +14,8 @@
 		3439E6D12C0E1F4D00DFD4F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3439E6CF2C0E1F4D00DFD4F9 /* Main.storyboard */; };
 		3439E6D32C0E1F4F00DFD4F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3439E6D22C0E1F4F00DFD4F9 /* Assets.xcassets */; };
 		3439E6D62C0E1F4F00DFD4F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3439E6D42C0E1F4F00DFD4F9 /* LaunchScreen.storyboard */; };
+		343C60232C14C7280055B40A /* 제목 없는 디자인.png in Resources */ = {isa = PBXBuildFile; fileRef = 343C60222C14C7280055B40A /* 제목 없는 디자인.png */; };
+		343C60252C14CA020055B40A /* 스크린샷 2024-06-09 오전 2.18.37.png in Resources */ = {isa = PBXBuildFile; fileRef = 343C60242C14CA020055B40A /* 스크린샷 2024-06-09 오전 2.18.37.png */; };
 		344E29262C1213F600314AED /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 344E29242C1213F600314AED /* Model.xcdatamodeld */; };
 		344E29282C12164900314AED /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344E29272C12164800314AED /* CoreData.framework */; };
 		344E292A2C12169500314AED /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E29292C12169500314AED /* CoreDataStack.swift */; };
@@ -34,6 +36,8 @@
 		3439E6D22C0E1F4F00DFD4F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3439E6D52C0E1F4F00DFD4F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3439E6D72C0E1F4F00DFD4F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		343C60222C14C7280055B40A /* 제목 없는 디자인.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "제목 없는 디자인.png"; path = "../../../../Downloads/제목 없는 디자인.png"; sourceTree = "<group>"; };
+		343C60242C14CA020055B40A /* 스크린샷 2024-06-09 오전 2.18.37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "스크린샷 2024-06-09 오전 2.18.37.png"; path = "../../../스크린샷 2024-06-09 오전 2.18.37.png"; sourceTree = "<group>"; };
 		344E29252C1213F600314AED /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		344E29272C12164800314AED /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		344E29292C12169500314AED /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				344E29242C1213F600314AED /* Model.xcdatamodeld */,
 				344E29292C12169500314AED /* CoreDataStack.swift */,
 				3439E6D22C0E1F4F00DFD4F9 /* Assets.xcassets */,
+				343C60222C14C7280055B40A /* 제목 없는 디자인.png */,
+				343C60242C14CA020055B40A /* 스크린샷 2024-06-09 오전 2.18.37.png */,
 				3439E6D42C0E1F4F00DFD4F9 /* LaunchScreen.storyboard */,
 				3439E6D72C0E1F4F00DFD4F9 /* Info.plist */,
 				340A536D2C0F82BB00C1477F /* CreateDiaryViewController.swift */,
@@ -177,6 +183,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3439E6D62C0E1F4F00DFD4F9 /* LaunchScreen.storyboard in Resources */,
+				343C60252C14CA020055B40A /* 스크린샷 2024-06-09 오전 2.18.37.png in Resources */,
+				343C60232C14C7280055B40A /* 제목 없는 디자인.png in Resources */,
 				3439E6D32C0E1F4F00DFD4F9 /* Assets.xcassets in Resources */,
 				3439E6D12C0E1F4D00DFD4F9 /* Main.storyboard in Resources */,
 			);
@@ -392,6 +400,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 2171278TermProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Diary Daily";
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 카메라를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -420,6 +430,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 2171278TermProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Diary Daily";
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 카메라를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
