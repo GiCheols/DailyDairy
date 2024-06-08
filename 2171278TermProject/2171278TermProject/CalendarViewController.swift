@@ -137,6 +137,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDe
             } else {
                 imageView.image = nil
             }
+            contentView.font = .systemFont(ofSize: 14)
+            titleLabel.font = .boldSystemFont(ofSize: 20)
             editButton.isHidden = false
         } else {
             titleLabel.text = "제목"
