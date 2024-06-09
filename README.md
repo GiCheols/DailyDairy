@@ -1,4 +1,4 @@
-# Diary Daily
+# Daily Diary
 ### 하루 한 장 일기 작성 어플리케이션
 2171278 남기철
 
@@ -37,7 +37,24 @@
 ### 2-2. 프로젝트 구조
 - Swift만을 사용해 개발되었습니다.
 
-### 2-3. 결과물
+### 2-3. 코드 설명
+- CalendarViewController
+  - 홈 화면에 대한 ViewController 입니다.
+  - 홈 화면에서 캘린더를 띄울 때 사용됩니다.
+  - 수정 화면 혹은 새 일기 작성 화면에서 이벤트를 받아 처리하고, 변경 사항을 달력에 적용하는 코드를 다룹니다.
+- EditViewController
+  - '수정하기' 버튼을 눌렀을 경우 수정화면에 대한 ViewController입니다.
+  - 수정 및 삭제 기능을 담당하고, CalendarViewController의 CoreData를 prepare() 함수에서 받아옵니다.
+- CreateDiaryViewController
+  - 새 일기를 생성하는 코드입니다. 탭 바의 '새 일기' 탭에 해당합니다.
+  - 날짜를 선택할 수 있는 DatePicker가 있습니다.
+  - CoreData를 생성하는 역할입니다.
+- CoreDataStack
+  - CoreData를 사용할 수 있도록 전체적인 설정을 다루는 코드입니다.
+- DiaryManager
+  - 일기에 대한 CRUD를 다루는 코드입니다.
+
+### 2-4. 결과물
 #### 메인화면
   ![Simulator Screen Shot - iPhone 13 Pro Max - 2024-06-09 at 03 05 51](https://github.com/GiCheols/DiaryDaily/assets/94215392/e0a110e2-6453-4a7d-9e58-ff03c79a4f29)
   ![Simulator Screen Shot - iPhone 13 Pro Max - 2024-06-09 at 03 08 39](https://github.com/GiCheols/DiaryDaily/assets/94215392/fac87218-b6fa-42f0-93d8-e413b47b4323)
@@ -60,10 +77,10 @@
 #### 앱 로고
   - <img width="78" alt="스크린샷 2024-06-09 오전 3 17 43" src="https://github.com/GiCheols/DiaryDaily/assets/94215392/9686ff1d-6603-43fc-a3b0-03fcd679029d">
 
-### 2-4. 기대효과
+### 2-5. 기대효과
 - 하루 한 장 일기를 작성할 수 있습니다.
 - 사진도 저장할 수 있습니다.
 - CoreData를 사용해 작성했기 때문에 데이터 사용 없이 일기를 저장할 수 있습니다.
 
-### 2.5 발표 영상
+### 2.6 발표 영상
 - 유튜브 링크
