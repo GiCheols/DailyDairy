@@ -102,13 +102,13 @@ class CreateDiaryViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main){ notification in
             if self.isShowKeyboard == false {
                 self.isShowKeyboard = true
-                self.createDiaryTopConstraint.constant -= 150
-                self.createDiaryBottomConstraint.constant -= 150
+                self.createDiaryTopConstraint.constant -= 200
+                self.createDiaryBottomConstraint.constant -= 200
             }
         }
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: OperationQueue.main){ notification in
-            self.createDiaryTopConstraint.constant += 150
-            self.createDiaryBottomConstraint.constant += 150
+            self.createDiaryTopConstraint.constant += 200
+            self.createDiaryBottomConstraint.constant += 200
             self.isShowKeyboard = false
         }
     }

@@ -86,13 +86,13 @@ class EditViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main){ notification in
             if self.isShowKeyboard == false {
                 self.isShowKeyboard = true
-                self.editTopConstraint.constant -= 150
-                self.editBottomConstraint.constant -= 150
+                self.editTopConstraint.constant -= 200
+                self.editBottomConstraint.constant -= 200
             }
         }
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: OperationQueue.main){ notification in
-            self.editTopConstraint.constant += 150
-            self.editBottomConstraint.constant += 150
+            self.editTopConstraint.constant += 200
+            self.editBottomConstraint.constant += 200
             self.isShowKeyboard = false
         }
     }
