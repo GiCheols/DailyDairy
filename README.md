@@ -83,4 +83,5 @@
 - CoreData를 사용해 작성했기 때문에 데이터 사용 없이 일기를 저장할 수 있습니다.
 
 ### 2.6 발표 영상
-- 유튜브 링크
+- 유튜브 링크: https://youtu.be/4aN-IxZs4HQ (아래 사진을 클릭해 이동할 수도 있습니다.
+  [![AppLogo](https://github.com/GiCheols/DiaryDaily/assets/94215392/98bfe845-fb40-4f00-93a9-9d878241664f)](https://youtu.be/4aN-IxZs4HQ)
